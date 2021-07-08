@@ -24,7 +24,7 @@ export const Button = styled(ButtonBase).attrs(props => ({
     &:visited{
         color:${props => props.border};
     }
-    padding:1rem;
+    padding:0.5rem;
     border:1.5px solid ${props => props.border};
     background:${props => props.background};
     border-radius:0.5rem;

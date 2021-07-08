@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CarouContainer, Selection, Content, Option, ContentContainer } from './style'
-import CarouselContainer from '../Carousel'
+import MyCarousel from '../MyCarousel'
 import {Button} from '../Button'
 import color from '../Constants/color'
 
@@ -11,7 +11,7 @@ import color from '../Constants/color'
 
 const BigCarousel = () => {
 
-    const [index, setIndex] = useState(4);
+    const [index, setIndex] = useState(1);
     const handleClick = (num) => {
         setIndex(num);
     }
@@ -35,7 +35,62 @@ const BigCarousel = () => {
                         </div>
                         <img src='./logo512.png' alt="avata" className="img-ava"></img>
                     </div>
-                    <CarouselContainer width="100%"height="auto"></CarouselContainer>
+                    <MyCarousel></MyCarousel>
+                </Content>
+                <Content index={index === 2 ? true : false}>
+                    <div className="cover">
+                        <div className="cover-left">
+                            <h2 className="title">Expand your career opportunities with Web Design</h2>
+                            <p className="text"> The world of web development is as wide as the internet itself. Much of our social and vocational lives play out on the internet, which prompts new industries aimed at creating, managing, and debugging the websites and applications that we increasingly rely on.</p>
+                            <Button border={color.buttonMain} background={color.buttonSub} to="/login"  >Explore  Web Design</Button>
+                        </div>
+                        <img src='./logo512.png' alt="avata" className="img-ava"></img>
+                    </div>
+                    <MyCarousel></MyCarousel>
+                </Content>
+                <Content index={index === 3 ? true : false}>
+                    <div className="cover">
+                        <div className="cover-left">
+                            <h2 className="title">Expand your career opportunities with Mobile Development</h2>
+                            <p className="text"> The world of web development is as wide as the internet itself. Much of our social and vocational lives play out on the internet, which prompts new industries aimed at creating, managing, and debugging the websites and applications that we increasingly rely on.</p>
+                            <Button border={color.buttonMain} background={color.buttonSub} to="/login"  >Explore Mobile Development</Button>
+                        </div>
+                        <img src='./logo512.png' alt="avata" className="img-ava"></img>
+                    </div>
+                    <MyCarousel></MyCarousel>
+                </Content>
+                <Content index={index === 4 ? true : false}>
+                    <div className="cover">
+                        <div className="cover-left">
+                            <h2 className="title">Expand your career opportunities with Front End Development</h2>
+                            <p className="text"> The world of web development is as wide as the internet itself. Much of our social and vocational lives play out on the internet, which prompts new industries aimed at creating, managing, and debugging the websites and applications that we increasingly rely on.</p>
+                            <Button border={color.buttonMain} background={color.buttonSub} to="/login"  >Explore Front End Development</Button>
+                        </div>
+                        <img src='./logo512.png' alt="avata" className="img-ava"></img>
+                    </div>
+                    <MyCarousel></MyCarousel>
+                </Content>
+                <Content index={index === 5 ? true : false}>
+                    <div className="cover">
+                        <div className="cover-left">
+                            <h2 className="title">Expand your career opportunities with FullStack</h2>
+                            <p className="text"> The world of web development is as wide as the internet itself. Much of our social and vocational lives play out on the internet, which prompts new industries aimed at creating, managing, and debugging the websites and applications that we increasingly rely on.</p>
+                            <Button border={color.buttonMain} background={color.buttonSub} to="/login"  >Explore FullStack</Button>
+                        </div>
+                        <img src='./logo512.png' alt="avata" className="img-ava"></img>
+                    </div>
+                    <MyCarousel></MyCarousel>
+                </Content>
+                <Content index={index === 6 ? true : false}>
+                    <div className="cover">
+                        <div className="cover-left">
+                            <h2 className="title">Expand your career opportunities with Data Structors And Algorithms</h2>
+                            <p className="text"> The world of web development is as wide as the internet itself. Much of our social and vocational lives play out on the internet, which prompts new industries aimed at creating, managing, and debugging the websites and applications that we increasingly rely on.</p>
+                            <Button border={color.buttonMain} background={color.buttonSub} to="/login"  >Explore Data Structors And Algorithms</Button>
+                        </div>
+                        <img src='./logo512.png' alt="avata" className="img-ava"></img>
+                    </div>
+                    <MyCarousel></MyCarousel>
                 </Content>
             </ContentContainer>
         </CarouContainer>

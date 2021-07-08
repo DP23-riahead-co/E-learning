@@ -18,7 +18,7 @@ export const Option = styled.div`
 `
 export const ContentContainer = styled.div`
     width:100%;
-    height:33rem;
+    height:35rem;
     background-color:transparent;
     border:0.5px solid ${color.border};
     position:relative;
@@ -36,11 +36,29 @@ export const Content = styled.div.attrs(props => ({
         flex-direction:row;
         justify-content:space-around;
         .cover-left{
-            width:40rem;
+            width:50rem;
+            .title{
+                line-height:none;
+                font-size:1.5rem;
+                font-weight:bold;
+                display: -webkit-box!important;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                letter-spacing: -.02rem;
+            }
+            p{
+                display: -webkit-box!important;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
         };
         .img-ava{
-            width:15rem;
-            height:15rem;
+            width:12rem;
+            height:12rem;
         }
     }
     position:absolute;

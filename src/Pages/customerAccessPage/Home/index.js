@@ -22,7 +22,7 @@ const Home = () => {
         <BigCarousel>
         </BigCarousel>
       </Intro>
-      <Box height="3rem">
+      <Box height="5rem">
         <div>
 
         </div>

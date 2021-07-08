@@ -8,13 +8,12 @@ import MyCarousel from './Components/MyCarousel'
 const App = () => {
 
     return (
-        // <BrowserRouter>
-        //     <Switch>
-        //         <Route exact component={Home} path="/home"></Route>
-        //         <Route exact component={Login} path="/login"></Route>
-        //     </Switch>
-        // </BrowserRouter>
-        <MyCarousel></MyCarousel>
+        <BrowserRouter>
+            <Switch>
+                <Route exact component={Home} path="/home"></Route>
+                <Route exact component={Login} path="/login"></Route>
+            </Switch>
+        </BrowserRouter>
     );
 }
 
