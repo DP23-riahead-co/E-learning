@@ -35,7 +35,7 @@ const BigCarousel = () => {
                         </div>
                         <img src='./logo512.png' alt="avata" className="img-ava"></img>
                     </div>
-                    <MyCarousel></MyCarousel>
+                    <MyCarousel cate="backEnd"></MyCarousel>
                 </Content>
                 <Content index={index === 2 ? true : false}>
                     <div className="cover">

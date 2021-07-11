@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { PageContainer, Header, Intro, Box, Main, CateContainer, TopicContainer, Topic, Outro, Footer } from './style';
 import SearchBox from '../../../Components/SearchBox';
 import BigCarousel from '../../../Components/BigCarousel';
+import { NavLink } from 'react-router-dom';
+import { FetchCourse ,FetchCate} from '../../../Redux/Actions/fetchCourse';
+import { useDispatch ,useSelector} from 'react-redux';
+import { ActionCreator } from '../../../Redux/Actions/ActionCreator';
+import { FETCHCOURSES } from '../../../Redux/Constants/Constants';
+
+
 const Home = () => {
+
   return (
     <PageContainer>
       <Header bgImage={"./img/home-header-bg.jpg"}>
@@ -28,60 +36,82 @@ const Home = () => {
         </div>
       </Box>
       <Main>
-        <h1 className="title">Top categories</h1>
+        <h2 className="title">Top categories</h2>
         <CateContainer>
-          <div className="item">
-            <img src="./logo512.png" alt="abcz"></img>
-            <h2>Design</h2>
-          </div>
+          <NavLink className="item" to="/">
+            <img src="./img/Categories/design.jpg" alt="abcz"></img>
+            <h3>Design</h3>
+          </NavLink>
+          <NavLink className="item" to="/">
+            <img src="./img/Categories/develop.jpg" alt="abcz"></img>
+            <h3>Development</h3>
+          </NavLink>
+          <NavLink className="item" to="/">
+            <img src="./img/Categories/it.jpg" alt="abcz"></img>
+            <h3>IT and Software</h3>
+          </NavLink>
 
         </CateContainer>
-        <h1 className="title">Featured topics by category</h1>
+        <h2 className="title">Featured topics by category</h2>
         <TopicContainer>
           <Topic>
             <h1>Website</h1>
             <div className="item">
-              <button>Front End</button>
+              <NavLink to="/login" className="link">Front End</NavLink>
               <p>100000 students</p>
             </div>
             <div className="item">
-              <button>Back End</button>
+              <NavLink to="/login" className="link">Back End</NavLink>
               <p>100000 students</p>
             </div>
             <div className="item">
-              <button>Full Stack</button>
+              <NavLink to="/login" className="link">Full Stack</NavLink>
               <p>100000 students</p>
             </div>
             <div className="item">
-              <button>Web design</button>
+              <NavLink to="/login" className="link">Web design</NavLink>
               <p>100000 students</p>
             </div>
           </Topic>
           <Topic>
             <h1>Mobile</h1>
             <div className="item">
-              <button>Mobile development</button>
+              <NavLink to="/login" className="link">Mobile development</NavLink>
               <p>100000 students</p>
             </div>
           </Topic>
           <Topic>
             <h1>Another</h1>
             <div className="item">
-              <button>Data Structors And Algorithms</button>
+              <NavLink to="/login" className="link">Data Structors And Algorithms</NavLink>
               <p>100000 students</p>
             </div>
           </Topic>
         </TopicContainer>
 
       </Main>
-      <Box height="10rem">
+      <Box height="5rem">
 
       </Box>
       <Outro>
-
+        <h2>Trusted by companies of all sizes</h2>
+        <ul>
+          <li><a href="https://facebook.com"><i className="fab fa-facebook" />
+          </a></li>
+          <li><a href="https://instagram.com"><i className="fab fa-instagram" />
+          </a></li>
+          <li><a href="https://github.com"><i className="fab fa-github" />
+          </a></li>
+          <li><a href="https://google.com"><i className="fab fa-google" />
+          </a></li>
+        </ul>
       </Outro>
       <Footer>
-
+        <h1>
+          <a href="/"><i className="fab fa-angellist" />demy</a>
+        </h1>
+        <p>@ 2021 <i className="fab fa-angellist" />demy,Inc</p>
+        <p>@ No copyright</p>
       </Footer>
 
 

@@ -4,6 +4,9 @@ import color from '../Constants/color'
 import { NavLink } from 'react-router-dom'
 import { Button } from '../Button'
 import { diviceSize } from '../Responsive'
+import { useSelector,useDispatch } from 'react-redux'
+import { useEffect,useCallback } from 'react'
+import { FetchBackEnd } from '../../Redux/Actions/fetchCourse'
 const BigCarousel = styled.div`
     width:100%;
     margin:0 auto;
@@ -115,7 +118,11 @@ const Item = styled(ItemBase).attrs(props => ({
         width:calc(100%/3);
     }
 `
-export default function MyCarousel() {
+export default function MyCarousel(props) {
+    const dispatch =useDispatch();
+    dispatch(FetchBackEnd);
+    
+
     const Array = [{
         id: 1,
         content: "Thanh duy dep trai nhat the gioi",
