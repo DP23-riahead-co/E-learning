@@ -1,69 +1,75 @@
 
 import { ActionCreator } from './ActionCreator';
-import { FETCHCOURSES,FETCHBACKEND,FETCHFRONTEND,FETCHFULLSTACK,FETCHMOBILE,FETCHMINDSET,FETCHDESIGN} from '../Constants/Constants'
+import { FETCHCOURSES, FETCHBACKEND, FETCHFRONTEND, FETCHFULLSTACK, FETCHMOBILE, FETCHMINDSET, FETCHDESIGN } from '../Constants/Constants'
 import { CoursesService } from '../../Services/Courses/Call';
 
 
 
 export const FetchCourse = async () => {
-    const fetchCourse=await CoursesService.fetchCourse();
+    const fetchCourse = await CoursesService.fetchCourse();
     return dispatch => {
         fetchCourse.then((res) => {
-            dispatch(ActionCreator(FETCHCOURSES,res.data));
+            dispatch(ActionCreator(FETCHCOURSES, res.data));
         }).catch();
     }
 }
-export const FetchBackEnd= async () => {
-    console.log("dispatched");
-    const fetchCourse=await CoursesService.fetchCate("BackEnd");
+export const FetchBackEnd = () => {
     return dispatch => {
-           fetchCourse.then((res) => {
-                dispatch(ActionCreator(FETCHBACKEND,res.data));
-                console.log("success");
+        CoursesService.fetchCate("BackEnd")
+            .then((res) => {
+                dispatch(ActionCreator(FETCHBACKEND, res.data));
             }).catch((err) => {
-                console.log("err",err.response.data);
+                console.log("err", err.data);
             });
     }
 }
-export const FetchFrontEnd= async () => {
-    const fetchCourse=await CoursesService.fetchCate("FrontEnd");
+export const FetchFrontEnd = () => {
     return dispatch => {
-           fetchCourse.then((res) => {
-                dispatch(ActionCreator(FETCHFRONTEND,res.data));
+        CoursesService.fetchCate("FrontEnd")
+            .then((res) => {
+                dispatch(ActionCreator(FETCHFRONTEND, res.data));
             }).catch((err) => {
-                console.log("err",err.response.data);
+                console.log("err", err.data);
             });
     }
 }
-export const FetchFullStack= async () => {
-    const fetchCourse=await CoursesService.fetchCate("FullStack");
+export const FetchFullStack =  () => {
     return dispatch => {
-           fetchCourse.then((res) => {
-                dispatch(ActionCreator(FETCHFULLSTACK,res.data));
-            }).catch();
+        CoursesService.fetchCate("FullStack")
+            .then((res) => {
+                dispatch(ActionCreator(FETCHFULLSTACK, res.data));
+            }).catch((err) => {
+                console.log("err", err.data);
+            });
     }
 }
-export const FetchDesign= async () => {
-    const fetchCourse=await CoursesService.fetchCourse("Design");
+export const FetchDesign =  () => {
     return dispatch => {
-           fetchCourse.then((res) => {
-                dispatch(ActionCreator(FETCHDESIGN,res.data));
-            }).catch();
+        CoursesService.fetchCate("Design")
+            .then((res) => {
+                dispatch(ActionCreator(FETCHDESIGN, res.data));
+            }).catch((err) => {
+                console.log("err", err.data);
+            });
     }
 }
-export const FetchMindSet= async () => {
-    const fetchCourse=await CoursesService.fetchCourse("TuDuy");
+export const FetchMindSet =  () => {
     return dispatch => {
-           fetchCourse.then((res) => {
-                dispatch(ActionCreator(FETCHMINDSET,res.data));
-            }).catch();
+        CoursesService.fetchCate("TuDuy")
+            .then((res) => {
+                dispatch(ActionCreator(FETCHMINDSET, res.data));
+            }).catch((err) => {
+                console.log("err", err.data);
+            });
     }
 }
-export const FetchMobile= async () => {
-    const fetchCourse=await CoursesService.fetchCourse("TuDuy");
+export const FetchMobile =  () => {
     return dispatch => {
-           fetchCourse.then((res) => {
-                dispatch(ActionCreator(FETCHMOBILE,res.data));
-            }).catch();
+        CoursesService.fetchCate("DiDong")
+            .then((res) => {
+                dispatch(ActionCreator(FETCHMOBILE, res.data));
+            }).catch((err) => {
+                console.log("err", err.data);
+            });
     }
 }

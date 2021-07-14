@@ -8,8 +8,9 @@ class Courses{
     }
     fetchCate=(cate) => {
         return axios({
-            method:'',
-            url:`https://elearning0706.cybersoft.edu.vn/api/QuanLyKhoaHoc/LayKhoaHocTheoDanhMuc?maDanhMuc=${cate}&MaNhom=GP03`
+            url:`https://elearning0706.cybersoft.edu.vn/api/QuanLyKhoaHoc/LayKhoaHocTheoDanhMuc?maDanhMuc=${cate}&MaNhom=GP03`,
+            method:'GET'
+           
         })
     }  
 }

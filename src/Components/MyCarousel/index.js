@@ -4,9 +4,9 @@ import color from '../Constants/color'
 import { NavLink } from 'react-router-dom'
 import { Button } from '../Button'
 import { diviceSize } from '../Responsive'
-import { useSelector,useDispatch } from 'react-redux'
-import { useEffect,useCallback } from 'react'
-import { FetchBackEnd } from '../../Redux/Actions/fetchCourse'
+import { useSelector, useDispatch } from 'react-redux'
+import { useEffect, useCallback } from 'react'
+import { FetchBackEnd, FetchDesign, FetchFrontEnd, FetchFullStack, FetchMindSet, FetchMobile } from '../../Redux/Actions/fetchCourse'
 const BigCarousel = styled.div`
     width:100%;
     margin:0 auto;
@@ -119,52 +119,53 @@ const Item = styled(ItemBase).attrs(props => ({
     }
 `
 export default function MyCarousel(props) {
-    const dispatch =useDispatch();
-    dispatch(FetchBackEnd);
-    
-
-    const Array = [{
-        id: 1,
-        content: "Thanh duy dep trai nhat the gioi",
-    },
-    {
-        id: 2,
-        content: "tag 2",
-    },
-    {
-        id: 3,
-        content: "tag 3",
-    }, {
-        id: 4,
-        content: "tag 4",
-    },
-    {
-        id: 5,
-        content: "tag 5",
-    },
-    {
-        id: 6,
-        content: "tag 6",
-    },
-    {
-        id: 7,
-        content: "tag 7",
-    }
-    ];
     const [num, setNum] = useState(1);
+    const [active, setActive] = useState(0);
+    const dispatch = useDispatch();
+    const GetCourseCate = () => {
+        switch (props.cate) {
+            case 'backEnd': dispatch(FetchBackEnd())
+                break;
+            case 'frontEnd': dispatch(FetchFrontEnd())
+                break;
+            case 'fullStack': dispatch(FetchFullStack())
+                break;
+            case 'design': dispatch(FetchDesign())
+                break;
+            case 'mindDev': dispatch(FetchMindSet())
+                break;
+            case 'mobile': dispatch(FetchMobile())
+                break;
+            default:
+                break;
+        }
+    }
+    useEffect(
+        () => {
+            GetCourseCate();
+            renderItem();
+        }, [active]
+    )
+
+    const courseList = useSelector(item => item.CourseReducer[props.cate])
+    //ham them id
+    var count = 0;
+    courseList.map((item) => {
+        item.id = count++;
+    })
+
+
 
     const handleNextSlide = () => {
-        const len = Array.length;
-        console.log(len);
+        const len = courseList.length;
         if (num <= len && num + 1 !== len + 1) {
             setNum(num + 1);
         } else {
             setNum(1);
         }
-        console.log(num);
     }
     const handlePreSlide = () => {
-        const len = Array.length;
+        const len = courseList.length;
         if (num > 0 && num - 1 !== 0) {
             setNum(num - 1);
         } else {
@@ -173,19 +174,20 @@ export default function MyCarousel(props) {
         console.log(num);
     }
     const renderItem = () => {
-        return Array.map(item => (
+        return courseList.map((item,key) => (
+            
             <Item
+                abc={key}
                 className="item"
                 index={item.id}
                 active={num}
                 to='/'
             >
-                <img src="./logo512.png" alt="img"></img>
-                <h1>{item.content}</h1>
+                <img src={item.hinhAnh} alt={item.maKhoaHoc}></img>
+                <h1>{item.maKhoaHoc}</h1>
                 <p>Author</p>
-                <Button to='/login'background={color.buttonMain}border={color.buttonSub}>View Detail</Button>
+                <Button to='/login' background={color.buttonMain} border={color.buttonSub}>View Detail</Button>
             </Item>
-
         ))
     }
     return (
@@ -204,8 +206,10 @@ export default function MyCarousel(props) {
                 <Circle
                     className="next"
                     onClick={() => { handleNextSlide() }}
-                    hide={num === Array.length - 1 ? true : false}
+                    hide={num === Array.length +1 ? true : false}
                 >+</Circle>
+
+
             </div>
 
         </BigCarousel>

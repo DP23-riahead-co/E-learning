@@ -46,7 +46,7 @@ const BigCarousel = () => {
                         </div>
                         <img src='./logo512.png' alt="avata" className="img-ava"></img>
                     </div>
-                    <MyCarousel></MyCarousel>
+                    <MyCarousel cate="design"></MyCarousel>
                 </Content>
                 <Content index={index === 3 ? true : false}>
                     <div className="cover">
@@ -56,8 +56,8 @@ const BigCarousel = () => {
                             <Button border={color.buttonMain} background={color.buttonSub} to="/login"  >Explore Mobile Development</Button>
                         </div>
                         <img src='./logo512.png' alt="avata" className="img-ava"></img>
-                    </div>
-                    <MyCarousel></MyCarousel>
+                    </div> 
+                    <MyCarousel cate="mobile"></MyCarousel>
                 </Content>
                 <Content index={index === 4 ? true : false}>
                     <div className="cover">
@@ -68,7 +68,7 @@ const BigCarousel = () => {
                         </div>
                         <img src='./logo512.png' alt="avata" className="img-ava"></img>
                     </div>
-                    <MyCarousel></MyCarousel>
+                    <MyCarousel cate="frontEnd"></MyCarousel>
                 </Content>
                 <Content index={index === 5 ? true : false}>
                     <div className="cover">
@@ -79,7 +79,7 @@ const BigCarousel = () => {
                         </div>
                         <img src='./logo512.png' alt="avata" className="img-ava"></img>
                     </div>
-                    <MyCarousel></MyCarousel>
+                    <MyCarousel cate="fullStack"></MyCarousel>
                 </Content>
                 <Content index={index === 6 ? true : false}>
                     <div className="cover">
@@ -90,7 +90,7 @@ const BigCarousel = () => {
                         </div>
                         <img src='./logo512.png' alt="avata" className="img-ava"></img>
                     </div>
-                    <MyCarousel></MyCarousel>
+                    <MyCarousel cate="mindDev"></MyCarousel>
                 </Content>
             </ContentContainer>
         </CarouContainer>
