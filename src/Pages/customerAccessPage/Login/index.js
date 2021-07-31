@@ -3,6 +3,7 @@ import { Form, LoginPage, Switch } from './style'
 import { FetchLogin } from '../../../Redux/Actions/fetchUsers';
 import { useDispatch } from 'react-redux';
 const Login = (props) => {
+    console.log("Props ",props);
     const dispatch = useDispatch()
     const [form,setForm] = useState({
         taiKhoan:'',
@@ -11,7 +12,8 @@ const Login = (props) => {
 
     const handleSubmit=(e)=>{
         e.preventDefault();
-       dispatch( FetchLogin(form,props));
+        const history=props.history
+       dispatch( FetchLogin(form,history));
 
     }
     const handleChange=(e)=>{

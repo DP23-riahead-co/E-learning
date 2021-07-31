@@ -1,6 +1,6 @@
 
 import { ActionCreator } from './ActionCreator';
-import { FETCHCOURSES, FETCHBACKEND, FETCHFRONTEND, FETCHFULLSTACK, FETCHMOBILE, FETCHMINDSET, FETCHDESIGN } from '../Constants/Constants'
+import { FETCHCOURSES, FETCHBACKEND, FETCHFRONTEND, FETCHFULLSTACK, FETCHMOBILE, FETCHMINDSET, FETCHDESIGN ,FETCHCOURSEDETAIL} from '../Constants/Constants'
 import { CoursesService } from '../../Services/Courses/Call';
 
 
@@ -71,5 +71,13 @@ export const FetchMobile =  () => {
             }).catch((err) => {
                 console.log("err", err.data);
             });
+    }
+}
+export const FetchCourseDetail =  (maKhoaHoc) => {
+    const fetchCourseDetail =  CoursesService.fetchCourseDetail(maKhoaHoc);
+    return dispatch => {
+        fetchCourseDetail.then((res) => {
+            dispatch(ActionCreator(FETCHCOURSEDETAIL, res.data));
+        }).catch();
     }
 }

@@ -12,6 +12,12 @@ class Courses{
             method:'GET'
            
         })
-    }  
+    } 
+    fetchCourseDetail=(maKhoaHoc) => {
+        return axios({
+            url:`https://elearning0706.cybersoft.edu.vn/api/QuanLyKhoaHoc/LayThongTinKhoaHoc?maKhoaHoc=${maKhoaHoc}`,
+            method:'GET'
+        })
+    }
 }
 export default Courses

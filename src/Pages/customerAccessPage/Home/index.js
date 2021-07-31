@@ -106,13 +106,6 @@ const Home = () => {
           </a></li>
         </ul>
       </Outro>
-      <Footer>
-        <h1>
-          <a href="/"><i className="fab fa-angellist" />demy</a>
-        </h1>
-        <p>@ 2021 <i className="fab fa-angellist" />demy,Inc</p>
-        <p>@ No copyright</p>
-      </Footer>
 
 
 

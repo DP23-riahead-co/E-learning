@@ -1,7 +1,7 @@
-import { FETCHCREDENTIALS } from "../Constants/Constants";
+import { FETCHCREDENTIALS, FETCHLOGGOUT } from "../Constants/Constants";
 
 const initalState={
-    Credential: {}
+    Credential: null
 }
 
 const UserReducer= (state=initalState, action) => {
@@ -13,7 +13,14 @@ const UserReducer= (state=initalState, action) => {
             state={...newState}
             return {...state}
         }
-    
+        case FETCHLOGGOUT:{
+            console.log("Đã đăng xuất");
+            newState.Credential=null
+            state={...newState}
+            localStorage.clear();
+            
+            return {...state}
+        }
         default:
             return state;
     }
